@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Ejercicio01_O1" default="run" basedir=".">
+    <property file="nbproject/project.properties"/>
+    <target name="clean"><delete dir="${build.dir}"/><delete dir="${dist.dir}"/></target>
+    <target name="compile"><mkdir dir="${build.dir}/classes"/><javac srcdir="${src.dir}" destdir="${build.dir}/classes" source="${javac.source}" target="${javac.target}" includeantruntime="false" encoding="UTF-8"/></target>
+    <target name="jar" depends="compile"><mkdir dir="${dist.dir}"/><jar destfile="${dist.jar}" basedir="${build.dir}/classes"><manifest><attribute name="Main-Class" value="${main.class}"/></manifest></jar></target>
+    <target name="run" depends="compile"><java classname="${main.class}" fork="true"><classpath><pathelement location="${build.dir}/classes"/></classpath><arg value="10"/></java></target>
+</project>
